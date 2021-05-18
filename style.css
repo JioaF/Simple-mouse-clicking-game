@@ -1,0 +1,17 @@
+
+
+.gameArea{
+    position: relative;
+    width: 500px;
+    height: 400px;
+    margin: 10px auto;
+    border: 10px dashed red;
+    background-color: grey;
+}
+
+.gameArea button{
+    position: absolute;
+    bottom: 0;
+}
+
+
