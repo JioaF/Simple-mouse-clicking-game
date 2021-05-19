@@ -5,13 +5,19 @@
     width: 500px;
     height: 400px;
     margin: 10px auto;
-    border: 10px dashed red;
+    border: 10px dashed gold;
     background-color: grey;
 }
 
 .gameArea button{
     position: absolute;
     bottom: 0;
+}
+
+footer{
+    border: 2px solid lightslategrey;
+    position: fixed;
+    left: 630px;
 }
 
 
