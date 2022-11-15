@@ -80,6 +80,19 @@ var gm = new gameManager(0, 10);
 var date = new Date();
 
 let maxPos = 450
+let isStartClicked = false;
+
+function isOverlap(el1, el2) {
+    const domRect1 = el1.getBoundingClientRect();
+    const domRect2 = el2.getBoundingClientRect();
+
+    return !(
+        domRect1.top > domRect2.bottom ||
+        domRect1.right < domRect2.left ||
+        domRect1.bottom < domRect2.top ||
+        domRect1.left > domRect2.right
+    )
+}
 
 startBtn.getElement().addEventListener("click", ()=>{
     panel.getElement().append(box.getElement());
@@ -91,6 +104,9 @@ startBtn.getElement().addEventListener("click", ()=>{
 box.getElement().addEventListener("click", ()=>{
     gm.scoreCounter(1, scoreCounter.getElement());
     gm.movepos(gm.rng(0, maxPos), box.getElement());
-    console.log(gm.logging(box.getElement()));
+    // console.log(gm.logging(box.getElement()));
+    while (!isOverlap(box.getElement(), panel.getElement())) {
+        gm.movepos(gm.rng(0, maxPos), box.getElement());
+    }
 });
 
