@@ -1,2 +1,3 @@
 # Simple-mouse-clicking-game
-a simple web game that i created while waiting for school start again.
+A simple web game that i created while waiting for school start again.
+*Still has a few bug and minor issue*
