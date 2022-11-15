@@ -40,7 +40,6 @@ class gameManager{
     }
 
     timeCounter(ms = 0, obj1, obj2){
-        let isStop;
         let intv = setInterval(() => {
             obj1.innerHTML = `Time : ${this.time -= 1}`;
             if(this.time == 0){
@@ -80,16 +79,18 @@ var timer = new domObj("timer", "id");
 var gm = new gameManager(0, 10);
 var date = new Date();
 
+let maxPos = 450
+
 startBtn.getElement().addEventListener("click", ()=>{
     panel.getElement().append(box.getElement());
-    gm.movepos(gm.rng(0, 100), box.getElement());
+    gm.movepos(gm.rng(0, maxPos), box.getElement());
     gm.timeCounter(1000, timer.getElement(), box.getElement());
     gm.scoreCounter(0, scoreCounter.getElement());
 });
 
 box.getElement().addEventListener("click", ()=>{
     gm.scoreCounter(1, scoreCounter.getElement());
-    gm.movepos(gm.rng(0, 100), box.getElement());
+    gm.movepos(gm.rng(0, maxPos), box.getElement());
     console.log(gm.logging(box.getElement()));
 });
 
