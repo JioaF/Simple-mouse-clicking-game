@@ -14,7 +14,7 @@ export default function Board({
         value: '',
         isActive: false,
     }));
-    boxes[0].isActive = true
+    // boxes[0].isActive = true
     return (
         <section className="m-auto w-1/3 h-auto flex justify-center flex-row flex-wrap gap-1">
             {boxes.map((box, i) => {
