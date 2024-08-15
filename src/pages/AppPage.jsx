@@ -6,23 +6,30 @@ import Timer from "../components/Timer";
 function AppPage() {
     const [gameValues, setGameValues] = useState({
         score: 0,
-        // timer: 0,
+        baseTime: 5,
+        gameStart: false,
+        totalBox: 10,
     })
-    const [start, setStart] = useState(false)
+
     function handleStart() {
-        setStart(true)
+        let gameStart = true;
+        setGameValues({
+            ...gameValues,
+            gameStart
+        })
     }
     return (
         <main className="flex flex-col justify-center h-screen p-4">
             <header>
                 <h1 className="text-xl">Simple Mouse Clicking Game</h1>
             </header>
-            <Timer baseTime={5} isStart={start} />
+            <Timer setGameValues={setGameValues} gameValues={gameValues} />
             <Score score={gameValues.score} />
             <section className="text-center">
                 <button
-                    className="bg-green-600 w-20 px-4 py-2 text-white rounded hover:bg-green-700"
+                    className="bg-green-600 w-20 px-4 py-2 text-white rounded hover:bg-green-700 disabled:bg-green-300"
                     onClick={handleStart}
+                    disabled={gameValues.gameStart}
                 >
                     Start
                 </button>

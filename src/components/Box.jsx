@@ -11,19 +11,20 @@ export default function Box({
         let score = gameValues.score + 1
         setGameValues(
             {
+                ...gameValues,
                 score
             }
-        )
-        console.log(gameValues)
+        );
     }
     return (
-        <div
-            className={`h-20 w-20 border-2 border-slate-600 flex flex-col justify-center items-center ${(active) ? 'bg-green-600' : 'hover:bg-green-400'} text-red-600`}
+        <button
+            className={`h-20 w-20 border border-slate-600 flex flex-col justify-center items-center ${(active) ? 'bg-green-600' : 'hover:bg-green-400'} text-red-600`}
             onClick={handleClick}
             data-index={index}
+            disabled={!gameValues.gameStart}
         >
             {value}
-        </div>
+        </button >
     );
 }
 
